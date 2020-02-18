@@ -5,12 +5,12 @@
     android:background="@drawable/bgtodo"
     android:orientation="horizontal"
     android:layout_marginBottom="20dp"
-    android:layout_height="100dp">
+    android:layout_height="120dp">
 
     <LinearLayout
         android:layout_marginStart="24dp"
         android:orientation="vertical"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="match_parent">
 
         <TextView
@@ -27,25 +27,25 @@
             android:textSize="18sp"
             android:textColor="#ADADAD"
             android:layout_marginTop="8dp"
-            android:text="Nearly market good to"
+            android:text="Nearly market good to yyyy bfhbf bfhbhbf"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="45dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content">
+        android:layout_marginEnd="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/date"
             android:textSize="18sp"
             android:textColor="#F63EA5"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:text="Tomorrow"
-            android:gravity="right"
+            android:textAlignment="textEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

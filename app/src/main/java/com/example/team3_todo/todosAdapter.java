@@ -1,6 +1,7 @@
 package com.example.team3_todo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,24 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
     public void onBindViewHolder(@NonNull ToDoViewHolder holder, int position) {
         holder.title.setText(todos.get(position).getTitle());
         holder.description.setText(todos.get(position).getDescription());
-        holder.date.setText(todos.get(position).getData());
+        holder.date.setText(todos.get(position).getDate());
+
+        final String getTitle = todos.get(position).getTitle();
+        final String getDescription = todos.get(position).getDescription();
+        final String getDate = todos.get(position).getDate();
+        final String getKey = todos.get(position).getKey();
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context,EditToDoActivity.class);
+                i.putExtra("title", getTitle);
+                i.putExtra("description", getDescription);
+                i.putExtra("date", getDate);
+                i.putExtra("key", getKey);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -41,7 +59,7 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
 
     class ToDoViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title, description, date;
+        TextView title, description, date, key;
 
         public ToDoViewHolder(@NonNull View itemView) {
             super(itemView);
