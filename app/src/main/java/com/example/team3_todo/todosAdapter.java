@@ -9,9 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHolder> {
+public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHolder> implements Serializable {
 
     Context context;
     ArrayList<todos> todos;

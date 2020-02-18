@@ -28,19 +28,19 @@
 
                 <TextView
                     android:id="@+id/titlepage"
-                    android:layout_marginTop="20dp"
-                    android:textSize="32sp"
-                    android:textColor="#FFF"
-                    android:text="My Does"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="My DOs"
+                    android:textColor="#FFF"
+                    android:textSize="32sp" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnAddNew"
                 android:layout_width="52dp"
-                android:layout_height="52dp"
+                android:layout_height="47dp"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="15dp"
                 android:text="+"
@@ -49,6 +49,7 @@
                 android:textSize="38sp" />
         </LinearLayout>
 
+        <!-- "divider" -->
         <View
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"

@@ -1,8 +1,10 @@
 package com.example.team3_todo;
 
-public class todos {
+import java.io.Serializable;
 
-    String title, date, description;
+public class todos implements Serializable {
+
+    private String title, date, description;
 
     public todos() {
     }
