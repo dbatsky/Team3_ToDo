@@ -39,13 +39,14 @@ public class EditToDoActivity extends AppCompatActivity {
 
         final String key = getIntent().getStringExtra("key");
 
+        reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo").
+                child("ToDo" + key);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // insert data to database
-                reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo").
-                        child("ToDo" + key);
-                reference.addValueEventListener(new ValueEventListener() {
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
