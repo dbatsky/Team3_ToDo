@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,6 +58,8 @@ public class EditToDoActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("date").setValue(date.getText().toString());
                         dataSnapshot.getRef().child("key").setValue(key);
 
+                        Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+
                         Intent a = new Intent(EditToDoActivity.this, MainActivity.class);
                         startActivity(a);
 
@@ -63,6 +68,26 @@ public class EditToDoActivity extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                    }
+                });
+            }
+        });
+
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Delete data to database
+                reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                            Intent a = new Intent(EditToDoActivity.this, MainActivity.class);
+                            startActivity(a);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Failed to delete entry", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }

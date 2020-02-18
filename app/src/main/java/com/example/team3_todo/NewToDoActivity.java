@@ -10,12 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class NewToDoActivity extends AppCompatActivity {
@@ -46,20 +52,29 @@ public class NewToDoActivity extends AppCompatActivity {
         btnSaveTask = findViewById(R.id.btnSaveTask);
         btnCancel = findViewById(R.id.btnCancel);
 
+
+        DateFormat dateFormat = new SimpleDateFormat("MMM, dd", Locale.US);
+        Date date = new Date();
+        final String strDate = dateFormat.format(date);
+
+
+
         btnSaveTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // insert data to database
+                // Insert data to database
                 reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo").
                         child("ToDo" + todoID);
-                reference.addValueEventListener(new ValueEventListener() {
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         dataSnapshot.getRef().child("title").setValue(title.getText().toString());
                         dataSnapshot.getRef().child("description").setValue(description.getText().toString());
-                        dataSnapshot.getRef().child("date").setValue(date.getText().toString());
+                        dataSnapshot.getRef().child("date").setValue(strDate);
                         dataSnapshot.getRef().child("key").setValue(key);
+
+                        Toast.makeText(getApplicationContext(), "Created", Toast.LENGTH_SHORT).show();
 
                         Intent a = new Intent(NewToDoActivity.this, MainActivity.class);
                         startActivity(a);
