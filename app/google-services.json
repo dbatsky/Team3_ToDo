@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1069749644341",
-    "firebase_url": "https://team3todo.firebaseio.com",
-    "project_id": "team3todo",
-    "storage_bucket": "team3todo.appspot.com"
+    "project_number": "239586821468",
+    "firebase_url": "https://team3todobase.firebaseio.com",
+    "project_id": "team3todobase",
+    "storage_bucket": "team3todobase.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069749644341:android:44eaddea59f98416ce957c",
+        "mobilesdk_app_id": "1:239586821468:android:f7349d141943c1c79b2d99",
         "android_client_info": {
           "package_name": "com.example.team3_todo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1069749644341-a4ro5hk353u85huevbv0kgo172j58id8.apps.googleusercontent.com",
+          "client_id": "239586821468-vvju6n7jlj2mp7eslm2ric97roofbtb4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.team3_todo",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "1069749644341-ksqsorratk4443ccqqj2u63n2hf4ii7l.apps.googleusercontent.com",
+          "client_id": "239586821468-ai5ut31i8nffon6osvso6a2n1b98v7po.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCL4um0KcHuvZUPQc_IhGcy3zpIn6qbbt4"
+          "current_key": "AIzaSyDKhawP-ygB8kMPHcwzh-bUO0RZBqRnRVw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1069749644341-ksqsorratk4443ccqqj2u63n2hf4ii7l.apps.googleusercontent.com",
+              "client_id": "239586821468-ai5ut31i8nffon6osvso6a2n1b98v7po.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
