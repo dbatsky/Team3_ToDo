@@ -42,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Integer getKey = todosAdapter.getItemCount();
                 Intent a = new Intent(MainActivity.this, NewToDoActivity.class);
+                a.putExtra("key", getKey);
                 startActivity(a);
             }
         });

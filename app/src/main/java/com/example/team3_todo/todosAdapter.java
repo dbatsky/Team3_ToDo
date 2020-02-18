@@ -59,7 +59,7 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
 
     class ToDoViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title, description, date;
+        TextView title, description, date, key;
 
         public ToDoViewHolder(@NonNull View itemView) {
             super(itemView);

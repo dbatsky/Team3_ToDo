@@ -24,13 +24,14 @@ public class NewToDoActivity extends AppCompatActivity {
     EditText title, description, date;
     Button btnSaveTask, btnCancel;
     DatabaseReference reference;
-    Integer todoID = new Random().nextInt();
-    String key = Integer.toString(todoID);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_to_do);
+
+        final Integer todoID = 1000 - getIntent().getIntExtra("key", 1) - 1;
+        final String key = Integer.toString(todoID);
 
         titlepage = findViewById(R.id.titlepage);
 
