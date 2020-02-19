@@ -1,17 +1,21 @@
 package com.example.team3_todo;
 
+import java.util.Date;
+
 public class todos {
 
-    private String title, date, description, key;
+    private String title, description, date, key;
+    private Date label;
 
     public todos() {
     }
 
-    public todos(String title, String date, String description, String key) {
-        this.title = title;
-        this.date = date;
-        this.description = description;
-        this.key = key;
+    public Date getLabel() {
+        return label;
+    }
+
+    public void setLabel(Date label) {
+        this.label = label;
     }
 
     public String getKey() {

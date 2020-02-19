@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,9 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer getKey = todosAdapter.getItemCount();
                 Intent a = new Intent(MainActivity.this, NewToDoActivity.class);
-                a.putExtra("key", getKey);
                 startActivity(a);
             }
         });
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Retrieve data from Firebase
         reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
