@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
                 {
                     todos p = dataSnapshot1.getValue(todos.class);
-                    list.add(p);
+                    list.add(p);    
                 }
                 todosAdapter = new todosAdapter(MainActivity.this, list);
                 todos.setAdapter(todosAdapter);
