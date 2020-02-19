@@ -1,20 +1,25 @@
 package com.example.team3_todo;
 
-import java.io.Serializable;
+public class todos {
 
-public class todos implements Serializable {
-
-    private String title, date, description;
+    private String title, date, description, key;
 
     public todos() {
     }
 
-
-
-    public todos(String title, String date, String description) {
+    public todos(String title, String date, String description, String key) {
         this.title = title;
         this.date = date;
         this.description = description;
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getTitle() {
@@ -25,11 +30,11 @@ public class todos implements Serializable {
         this.title = title;
     }
 
-    public String getData() {
+    public String getDate() {
         return date;
     }
 
-    public void setData(String date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

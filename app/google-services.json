@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "239586821468-ia6e7jm2b096bj9msiimkchada1v1cto.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.team3_todo",
-            "certificate_hash": "37ac88e69b7eb48e34b831e4fa4c6014f2c6919a"
-          }
-        },
-        {
           "client_id": "239586821468-vvju6n7jlj2mp7eslm2ric97roofbtb4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
