@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,11 +19,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class EditToDoActivity extends AppCompatActivity {
 
-    EditText title, description, date;
+    EditText title, description;
     Button btnSave, btnDelete;
     DatabaseReference reference;
+    Date labelDay, labelMonth, labelYear;
+    DatePicker picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +40,27 @@ public class EditToDoActivity extends AppCompatActivity {
 
         title = findViewById(R.id.title);
         description = findViewById(R.id.description);
-        date = findViewById(R.id.date);
 
         btnSave = findViewById(R.id.btnSave);
         btnDelete = findViewById(R.id.btnDelete);
 
         title.setText(getIntent().getStringExtra("title"));
         description.setText(getIntent().getStringExtra("description"));
-        date.setText(getIntent().getStringExtra("date"));
+
+        picker = findViewById(R.id.datePicker);
+
+        String[] split = getIntent().getStringExtra("date").split(", ");
+        int day = Integer.valueOf(split[0]);
+        int month = Integer.valueOf(split[1]);
+        int year = Integer.valueOf(split[2]);
+
+        picker.init(year, month - 1, day, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
+                // Notify the user.
+
+            }
+        });
 
         final String key = getIntent().getStringExtra("key");
 
@@ -55,7 +77,7 @@ public class EditToDoActivity extends AppCompatActivity {
 
                         dataSnapshot.getRef().child("title").setValue(title.getText().toString());
                         dataSnapshot.getRef().child("description").setValue(description.getText().toString());
-                        dataSnapshot.getRef().child("date").setValue(date.getText().toString());
+                        dataSnapshot.getRef().child("date").setValue(picker.getDayOfMonth() + ", " + (picker.getMonth() + 1) + ", " + picker.getYear());
                         dataSnapshot.getRef().child("key").setValue(key);
 
                         Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
