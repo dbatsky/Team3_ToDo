@@ -1,5 +1,7 @@
 package com.example.team3_todo;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
@@ -33,6 +37,19 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
             DateFormat formatter = new SimpleDateFormat("dd, MM, yyyy", Locale.US);
             try {
                 label = formatter.parse(todos.get(position).getDate());
+                String[] split = todos.get(position).getDate().split(", ");
+                int day = Integer.valueOf(split[0]);
+                int month = Integer.valueOf(split[1]);
+                int year = Integer.valueOf(split[2]);
+                Date currentDate = new Date();
+                String sCurrentDate = formatter.format(currentDate);
+                String[] cSplit = sCurrentDate.split(", ");
+                int cDay = Integer.valueOf(cSplit[0]);
+                int cMonth = Integer.valueOf(cSplit[1]);
+                int cYear = Integer.valueOf(cSplit[2]);
+                if(cYear == year && cMonth == month && cDay == day)
+                    buildNotification(todos.get(position).getTitle(), todos.get(position).getDescription(), c, position);
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -99,6 +116,31 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
             description = itemView.findViewById(R.id.description);
             date = itemView.findViewById(R.id.date);
         }
+    }
+
+    public void buildNotification(String title, String desc, Context c, int id) {
+        Intent intent = new Intent(c, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(c, 0, intent, 0);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(c, "C1")
+                .setSmallIcon(R.drawable.ic_notification)
+                .setContentTitle(title)
+                .setContentText(desc)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(desc))
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        Notification notification = builder.build();
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(c);
+
+        notificationManager.notify(id, builder.build());
     }
 
 }
