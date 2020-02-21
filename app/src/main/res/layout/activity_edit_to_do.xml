@@ -50,7 +50,7 @@
                 android:id="@+id/addtitle"
                 android:textSize="18sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Add Title"
+                android:text="Title"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -61,8 +61,8 @@
                 android:background="@drawable/bginputtask"
                 android:paddingStart="12dp"
                 android:textColorHint="#B5B5B5"
-                android:textColor="@color/colorPrimaryDark"
-                android:hint="What You Do?"
+                android:textColor="#000"
+                android:hint="e.g. Cat"
                 android:maxLength="16"
                 android:layout_width="match_parent"
                 android:layout_height="55dp" />
@@ -93,8 +93,8 @@
                 android:paddingStart="12dp"
                 android:textColorHint="#B5B5B5"
                 android:maxLength="38"
-                android:textColor="@color/colorPrimaryDark"
-                android:hint="How to?"
+                android:textColor="#000"
+                android:hint="e.g. Buy milk"
                 android:layout_width="match_parent"
                 android:layout_height="55dp" />
         </LinearLayout>

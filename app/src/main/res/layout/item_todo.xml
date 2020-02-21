@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
             android:text="Buy whiskas"
-            android:textColor="#00363a"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp" />
 
         <TextView
