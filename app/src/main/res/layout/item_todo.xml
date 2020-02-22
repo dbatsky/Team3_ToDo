@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
             android:text="@string/hintTitle"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="?attr/colorAccent"
             android:textSize="22sp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
             android:text="@string/hintDescription"
-            android:textColor="#868686"
+            android:textColor="?attr/secondaryTextColor"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -45,7 +45,7 @@
         <TextView
             android:id="@+id/date"
             android:textSize="18sp"
-            android:textColor="#707070"
+            android:textColor="?attr/dateTextColor"
             android:layout_marginTop="20dp"
             android:text="@string/todoDate"
             android:textAlignment="textEnd"

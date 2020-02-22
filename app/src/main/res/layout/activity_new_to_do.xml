@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F4F4"
+    android:background="?attr/backgroundColor"
     tools:context=".MainActivity">
 
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/colorPrimaryDark"
         android:layout_height="198dp">
 
         <TextView
@@ -48,7 +48,7 @@
             <TextView
                 android:id="@+id/addtitle"
                 android:textSize="18sp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="?attr/colorAccent"
                 android:text="@string/todoTitle"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                 android:background="@drawable/bginputtask"
                 android:paddingStart="12dp"
                 android:textColorHint="#B5B5B5"
-                android:textColor="#000"
+                android:textColor="?attr/black"
                 android:hint="@string/hintTitle"
                 android:maxLength="16"
                 android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             <TextView
                 android:id="@+id/adddescription"
                 android:textSize="18sp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="?attr/colorAccent"
                 android:text="@string/todoDescription"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                 android:paddingStart="12dp"
                 android:textColorHint="#B5B5B5"
                 android:maxLength="38"
-                android:textColor="#000"
+                android:textColor="?attr/black"
                 android:hint="@string/hintDescription"
                 android:layout_width="match_parent"
                 android:layout_height="55dp" />
@@ -110,7 +110,7 @@
             <TextView
                 android:id="@+id/adddate"
                 android:textSize="18sp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="?attr/colorAccent"
                 android:text="@string/todoDue"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
@@ -125,8 +125,6 @@
                 android:calendarViewShown="false"/>
 
         </LinearLayout>
-
-
     </LinearLayout>
 
     <Button
@@ -148,7 +146,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="14dp"
         android:text="@string/buttonCancel"
-        android:textColor="#AFAFAF"
+        android:textColor="?attr/deleteTextColor"
         android:textAllCaps="false"
         android:background="@drawable/bgbtncancel"
         android:textSize="22sp"

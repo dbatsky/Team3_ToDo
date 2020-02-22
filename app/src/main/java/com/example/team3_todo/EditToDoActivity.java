@@ -25,9 +25,19 @@ public class EditToDoActivity extends AppCompatActivity {
     Button btnSave, btnDelete;
     DatabaseReference reference;
     DatePicker picker;
+    SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadNightModeState()) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_to_do);
 

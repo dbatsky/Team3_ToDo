@@ -90,7 +90,7 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
 
 
         if (today.equals(formatter.format(todos.get(position).getLabel()))) {
-            holder.date.setTextColor(Color.parseColor("#d50000"));
+            holder.date.setTextColor(Color.parseColor("#d50505"));
         }
 
 

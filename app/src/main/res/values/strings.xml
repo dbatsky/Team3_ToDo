@@ -13,7 +13,7 @@
     <string name="hintDescription">e.g. Buy milk</string>
     <string name="todoDue">Edit ToDo</string>
     <string name="todoDate">Tomorrow</string>
-    <string name="buttonCreate">Create now</string>
+    <string name="buttonCreate">Create</string>
     <string name="buttonCancel">Cancel</string>
     <string name="buttonSave">Save</string>
     <string name="buttonDelete">Delete</string>

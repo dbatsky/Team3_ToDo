@@ -2,7 +2,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F4F4">
+    android:background="?attr/backgroundColor">
     <LinearLayout
         android:layout_margin="16dp"
         android:layout_width="match_parent"
@@ -12,15 +12,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#000"
+            android:textColor="?attr/black"
             android:text="Enable Dark Mode"/>
         <Switch
-            android:id="@+id/myswitch"
+            android:id="@+id/darkSwitch"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:text="Night Mode"
-            android:textColor="#000"/>
+            android:textColor="?attr/black"/>
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/buttonSave"
+        android:textColor="?attr/deleteTextColor"
+        android:textAllCaps="false"
+        android:background="@drawable/bgbtncancel"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
 </LinearLayout>

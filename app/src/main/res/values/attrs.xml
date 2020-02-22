@@ -2,17 +2,18 @@
 <resources>
     <declare-styleable name="declareStylable">
 
-        <attr name="backgroundColorPrimary" format="color"/>
-        <attr name="backgroundColorSecondary" format="color"/>
-        <attr name="addButtonColor" format="color"/>
-        <attr name="titleTextColor" format="color"/>
+        <attr name="backgroundColor" format="color"/>
+        <attr name="titleMainTextColor" format="color"/>
         <attr name="primaryTextColor" format="color"/>
         <attr name="secondaryTextColor" format="color"/>
-        <attr name="hintTextColor" format="color"/>
+        <attr name="inputTask" format="color"/>
+        <attr name="inputTaskCell" format="color"/>
         <attr name="todayTextColor" format="color"/>
-        <attr name="mainButtonColor" format="color"/>
+        <attr name="dateTextColor" format="color"/>
         <attr name="otherButtonColor" format="color"/>
         <attr name="deleteTextColor" format="color"/>
+        <attr name="white" format="color"/>
+        <attr name="black" format="color"/>
 
     </declare-styleable>
 </resources>
