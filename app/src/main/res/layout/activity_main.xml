@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="My ToDos"
+                    android:text="@string/mainTitle"
                     android:textColor="#FFF"
                     android:textSize="32sp" />
 
@@ -50,7 +50,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/bgbutton"
-                    android:text="+"
+                    android:text="@string/plus"
                     android:textAlignment="center"
                     android:textColor="#FFF"
                     android:textSize="35sp"
@@ -74,7 +74,7 @@
         android:id="@+id/copyright"
         android:textSize="16sp"
         android:textColor="#9A9A9A"
-        android:text="Java Bootcamp\nAll rights reserved"
+        android:text="@string/copyright"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

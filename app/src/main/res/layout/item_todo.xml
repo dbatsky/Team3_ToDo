@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
-            android:text="Buy whiskas"
+            android:text="@string/hintTitle"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp" />
 
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:text="Nearly market good to yyyy bfhbf bfhbhbf"
+            android:text="@string/hintDescription"
             android:textColor="#868686"
             android:textSize="18sp" />
 
@@ -45,9 +45,9 @@
         <TextView
             android:id="@+id/date"
             android:textSize="18sp"
-            android:textColor="#d50000"
+            android:textColor="#707070"
             android:layout_marginTop="20dp"
-            android:text="Tomorrow"
+            android:text="@string/todoDate"
             android:textAlignment="textEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

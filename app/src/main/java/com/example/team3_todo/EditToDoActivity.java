@@ -19,18 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 public class EditToDoActivity extends AppCompatActivity {
 
     EditText title, description;
     Button btnSave, btnDelete;
     DatabaseReference reference;
-    Date labelDay, labelMonth, labelYear;
     DatePicker picker;
 
     @Override
@@ -57,7 +50,6 @@ public class EditToDoActivity extends AppCompatActivity {
         picker.init(year, month - 1, day, new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
-                // Notify the user.
 
             }
         });
@@ -89,7 +81,7 @@ public class EditToDoActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        Toast.makeText(getApplicationContext(), "Database Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -99,7 +91,7 @@ public class EditToDoActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Delete data to database
+                // Delete data in database
                 reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

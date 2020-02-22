@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Team3_ToDo</string>
+    <string name="app_name">Team3 ToDo</string>
+    <string name="shortcut_short_label1">New ToDo</string>
+    <string name="shortcut_long_label1">Create new ToDo</string>
+    <string name="mainTitle">My ToDos</string>
+    <string name="plus">+</string>
+    <string name="copyright">Java Bootcamp\nAll rights reserved</string>
+    <string name="createTodo">Create New ToDo</string>
+    <string name="editTodo">Edit ToDo</string>
+    <string name="todoTitle">Title</string>
+    <string name="hintTitle">e.g. Cat</string>
+    <string name="todoDescription">Description</string>
+    <string name="hintDescription">e.g. Buy milk</string>
+    <string name="todoDue">Edit ToDo</string>
+    <string name="todoDate">Tomorrow</string>
+    <string name="buttonCreate">Create now</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="buttonSave">Save</string>
+    <string name="buttonDelete">Delete</string>
 </resources>

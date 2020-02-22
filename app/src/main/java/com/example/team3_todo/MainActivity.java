@@ -2,15 +2,17 @@ package com.example.team3_todo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import android.app.Notification;
 import android.app.PendingIntent;
+
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,14 +28,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView titlepage, copyright;
     Button btnAddNew;
-
     DatabaseReference reference;
     RecyclerView todos;
     ArrayList<todos> list;
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         // Data
         todos = findViewById(R.id.todos);
         todos.setLayoutManager(new LinearLayoutManager(this));
-        list = new ArrayList<todos>();
+        list = new ArrayList<>();
 
 
         // Retrieve data from Firebase
@@ -86,7 +85,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void buildNotification(String title, String desc) {
+
+    /* SAVED FOR FUTURE
+
+
+    public void buildNotification(String title, String description) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -95,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "C1")
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(title)
-                .setContentText(desc)
+                .setContentText(description)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(desc))
+                        .bigText(description))
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
@@ -110,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
         notificationManager.notify(1, builder.build());
     }
+
+     */
 
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
@@ -125,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
              or other notification behaviors after this
             */
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            assert notificationManager != null;
             notificationManager.createNotificationChannel(channel);
         }
 
