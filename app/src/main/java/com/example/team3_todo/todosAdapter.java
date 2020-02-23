@@ -121,7 +121,7 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
 
         TextView title, description, date;
 
-        public ToDoViewHolder(@NonNull View itemView) {
+        ToDoViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
@@ -129,7 +129,7 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
         }
     }
 
-    public void buildNotification(String title, String description, Context c, int id) {
+    private void buildNotification(String title, String description, Context c, int id) {
         Intent intent = new Intent(c, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);

@@ -15,14 +15,14 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="?attr/black"
-            android:text="Enable Dark Mode"/>
+            android:text="@string/enableDarkMode"/>
         <Switch
             android:id="@+id/darkSwitch"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="Night Mode"
+            android:text="@string/nightMode"
             android:textColor="?attr/black"/>
 
     </LinearLayout>

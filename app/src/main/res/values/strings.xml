@@ -18,6 +18,8 @@
     <string name="buttonSave">Save</string>
     <string name="buttonDelete">Delete</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="enableDarkMode">Enable Dark Mode</string>
+    <string name="nightMode">Night Mode</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
