@@ -18,24 +18,31 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Date;
 import java.util.Random;
 
 public class NewToDoActivity extends AppCompatActivity {
 
     TextView titlepage, addtitle, adddescription, adddate;
-    EditText title, description, date;
-    Date label;
+    EditText title, description;
     DatePicker picker;
     Button btnSaveTask, btnCancel;
     DatabaseReference reference;
+    SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new SharedPref(this);
+
+        if (sharedPref.loadNightModeState()) {
+            setTheme(R.style.DarkTheme);
+        } else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_to_do);
-        final Integer todoID = new Random().nextInt();
+        final int todoID = new Random().nextInt();
         final String key = Integer.toString(todoID);
 
         titlepage = findViewById(R.id.titlepage);
@@ -70,12 +77,11 @@ public class NewToDoActivity extends AppCompatActivity {
 
                         Intent a = new Intent(NewToDoActivity.this, MainActivity.class);
                         startActivity(a);
-
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        Toast.makeText(getApplicationContext(), "Database Error", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
