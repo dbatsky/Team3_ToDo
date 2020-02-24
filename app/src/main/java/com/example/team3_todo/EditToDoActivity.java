@@ -37,7 +37,6 @@ public class EditToDoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_to_do);
-
         title = findViewById(R.id.title);
         description = findViewById(R.id.description);
 

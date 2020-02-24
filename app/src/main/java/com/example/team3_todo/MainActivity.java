@@ -7,6 +7,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -26,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView todos;
     ArrayList<todos> list;
     todosAdapter todosAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     todos p = dataSnapshot1.getValue(todos.class);
                     list.add(p);
                 }
+
                 todosAdapter = new todosAdapter(MainActivity.this, list);
                 todos.setAdapter(todosAdapter);
                 todosAdapter.notifyDataSetChanged();
@@ -86,30 +90,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void buildNotification(String title, String desc) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP
-                | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "C1")
-                .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle(title)
-                .setContentText(desc)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(desc))
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-
-        Notification notification = builder.build();
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        notificationManager.notify(1, builder.build());
-    }
 
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because

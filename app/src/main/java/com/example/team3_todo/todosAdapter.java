@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHolder> {
@@ -28,11 +29,20 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
     Context context;
     ArrayList<todos> todos;
 
+    Alarm alarm;
+    ArrayList<String> titles;
+    ArrayList<String> descs;
+    ArrayList<String> ids;
+
     Date label;
 
     public todosAdapter(Context c, ArrayList<todos> p) {
         context = c;
         todos = p;
+        alarm = new Alarm();
+        titles = new ArrayList();
+        descs = new ArrayList();
+        ids = new ArrayList();
         for (int position = 0; position < todos.size(); position++) {
             DateFormat formatter = new SimpleDateFormat("dd, MM, yyyy", Locale.US);
             try {
@@ -47,12 +57,15 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
                 int cDay = Integer.valueOf(cSplit[0]);
                 int cMonth = Integer.valueOf(cSplit[1]);
                 int cYear = Integer.valueOf(cSplit[2]);
-                if(cYear == year && cMonth == month && cDay == day)
-                    buildNotification(todos.get(position).getTitle(), todos.get(position).getDescription(), c, position);
-
+                if(cYear == year && cMonth == month && cDay == day) {
+                    titles.add(todos.get(position).getTitle());
+                    descs.add(todos.get(position).getDescription());
+                    ids.add(Integer.toString(position));
+                }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            alarm.setAlarm(c, titles, descs,ids);
             todos.get(position).setLabel(label);
         }
 
@@ -116,31 +129,6 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
             description = itemView.findViewById(R.id.description);
             date = itemView.findViewById(R.id.date);
         }
-    }
-
-    public void buildNotification(String title, String desc, Context c, int id) {
-        Intent intent = new Intent(c, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP
-                | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(c, 0, intent, 0);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(c, "C1")
-                .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle(title)
-                .setContentText(desc)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(desc))
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-
-        Notification notification = builder.build();
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(c);
-
-        notificationManager.notify(id, builder.build());
     }
 
 }
