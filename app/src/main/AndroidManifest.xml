@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditToDoActivity"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".EditToDoActivity" />
         <activity android:name=".NewToDoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,6 +21,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
 
         <receiver android:name="Alarm"

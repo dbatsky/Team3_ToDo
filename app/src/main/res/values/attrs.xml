@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="declareStylable">
+
+        <attr name="backgroundColor" format="color"/>
+        <attr name="titleMainTextColor" format="color"/>
+        <attr name="primaryTextColor" format="color"/>
+        <attr name="secondaryTextColor" format="color"/>
+        <attr name="inputTask" format="color"/>
+        <attr name="inputTaskCell" format="color"/>
+        <attr name="todayTextColor" format="color"/>
+        <attr name="dateTextColor" format="color"/>
+        <attr name="otherButtonColor" format="color"/>
+        <attr name="deleteTextColor" format="color"/>
+        <attr name="white" format="color"/>
+        <attr name="black" format="color"/>
+
+    </declare-styleable>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version ="1.0" encoding ="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="New"
+        android:enabled="true"
+        android:icon="@mipmap/ic_new_todo"
+        android:shortcutShortLabel="@string/shortcut_short_label1"
+        android:shortcutLongLabel="@string/shortcut_long_label1">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.team3_todo"
+            android:targetClass="com.example.team3_todo.NewToDoActivity" />
+    </shortcut>
+</shortcuts>
