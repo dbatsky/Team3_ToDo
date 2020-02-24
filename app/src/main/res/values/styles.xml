@@ -3,9 +3,41 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#1565c0</item>
+        <item name="colorPrimaryDark">#003c8f</item>
+        <item name="colorAccent">#003c8f</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="backgroundColor">#EBEBEB</item>
+        <item name="primaryTextColor">#003c8f</item>
+        <item name="secondaryTextColor">#868686</item>
+        <item name="inputTask">#FFF</item>
+        <item name="inputTaskCell">#EBEBEB</item>
+        <item name="todayTextColor">#d50505</item>
+        <item name="dateTextColor">#707070</item>
+        <item name="otherButtonColor">#C9C9C9</item>
+        <item name="deleteTextColor">#7A7A7A</item>
+        <item name="white">#FFF</item>
+        <item name="black">#000</item>
+    </style>
+
+    <!-- Dark application theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#0C3668</item>
+        <item name="colorPrimaryDark">#001025</item>
+        <item name="colorAccent">#297ADD</item>
+        <item name="android:textColorPrimary">#FFF</item>
+        <item name="backgroundColor">#000000</item>
+        <item name="primaryTextColor">#FFF</item>
+        <item name="secondaryTextColor">#868686</item>
+        <item name="inputTask">#000</item>
+        <item name="inputTaskCell">#000000</item>
+        <item name="todayTextColor">#d50505</item>
+        <item name="dateTextColor">#C1C1C1</item>
+        <item name="otherButtonColor">#3A3A3A</item>
+        <item name="deleteTextColor">#D2D2D2</item>
+        <item name="white">#222222</item>
+        <item name="black">#FFF</item>
     </style>
 
 </resources>
