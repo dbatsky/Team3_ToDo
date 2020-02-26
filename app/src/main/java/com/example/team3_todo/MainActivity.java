@@ -83,11 +83,12 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
 
         // unique id (generate first run only)
-        if(SharedPref.UNIQUE_ID == null)
-            SharedPref.UNIQUE_ID = UUID.randomUUID().toString();
+        if(sharedPref.loadUniqueId() == null) {
+            sharedPref.setUniqueId(UUID.randomUUID().toString());
+        }
 
         // Retrieve data from Firebase
-        reference = FirebaseDatabase.getInstance().getReference().child(SharedPref.UNIQUE_ID);
+        reference = FirebaseDatabase.getInstance().getReference().child(sharedPref.loadUniqueId());
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

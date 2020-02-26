@@ -62,7 +62,7 @@ public class NewToDoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Insert data to database
-                reference = FirebaseDatabase.getInstance().getReference().child(SharedPref.UNIQUE_ID).
+                reference = FirebaseDatabase.getInstance().getReference().child(sharedPref.loadUniqueId()).
                         child("ToDo" + todoID);
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -93,6 +93,7 @@ public class NewToDoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent a = new Intent(NewToDoActivity.this, MainActivity.class);
                 startActivity(a);
+                finish();
             }
         });
     }

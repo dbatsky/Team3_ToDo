@@ -23,4 +23,14 @@ public class SharedPref {
 
         return sharedPreferences.getBoolean("NightMode", false);
     }
+
+    public void setUniqueId(String id) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UNIQUE_ID", id);
+        editor.apply();
+    }
+
+    public String loadUniqueId() {
+        return sharedPreferences.getString("UNIQUE_ID", null);
+    }
 }

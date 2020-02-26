@@ -1,17 +1,13 @@
 package com.example.team3_todo;
-
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
@@ -21,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHolder> {
@@ -88,12 +83,14 @@ public class todosAdapter extends RecyclerView.Adapter<todosAdapter.ToDoViewHold
     @Override
     public void onBindViewHolder(@NonNull ToDoViewHolder holder, int position) {
 
-
-
         holder.title.setText(todos.get(position).getTitle());
         holder.description.setText(todos.get(position).getDescription());
         DateFormat formatter = new SimpleDateFormat("MMM, dd", Locale.US);
         holder.date.setText(formatter.format(todos.get(position).getLabel()));
+
+        if (formatter.format(todos.get(position).getLabel()).equals(formatter.format(new Date()))) {
+            holder.date.setTextColor(Color.parseColor("#d50505"));
+        }
 
 
         final String getTitle = todos.get(position).getTitle();

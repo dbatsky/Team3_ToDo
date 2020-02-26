@@ -32,7 +32,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="14dp"
-        android:text="@string/buttonSave"
+        android:text="@string/buttonBack"
         android:textColor="?attr/deleteTextColor"
         android:textAllCaps="false"
         android:background="@drawable/bgbtncancel"

@@ -52,9 +52,9 @@ public class SettingsActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
                 Intent a = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(a);
+                finish();
             }
         });
     }

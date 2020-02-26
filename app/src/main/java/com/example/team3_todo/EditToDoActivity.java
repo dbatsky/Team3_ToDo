@@ -65,7 +65,7 @@ public class EditToDoActivity extends AppCompatActivity {
 
         final String key = getIntent().getStringExtra("key");
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo").
+        reference = FirebaseDatabase.getInstance().getReference().child(sharedPref.loadUniqueId()).
                 child("ToDo" + key);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +85,7 @@ public class EditToDoActivity extends AppCompatActivity {
 
                         Intent a = new Intent(EditToDoActivity.this, MainActivity.class);
                         startActivity(a);
+                        finish();
 
                     }
 
@@ -108,6 +109,7 @@ public class EditToDoActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
                             Intent a = new Intent(EditToDoActivity.this, MainActivity.class);
                             startActivity(a);
+                            finish();
                         } else {
                             Toast.makeText(getApplicationContext(), "Failed to delete entry", Toast.LENGTH_SHORT).show();
                         }

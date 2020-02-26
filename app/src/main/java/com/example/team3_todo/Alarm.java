@@ -55,7 +55,7 @@ public class Alarm extends BroadcastReceiver
         i.putStringArrayListExtra("descs", descs);
         i.putStringArrayListExtra("ids", ids);
         pi = PendingIntent.getBroadcast(context, 0, i, FLAG_UPDATE_CURRENT);
-        am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pi); // fire every 9am morning
+        am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pi); // fire every 9am morning
     }
 
     public void cancelAlarm(Context context)
