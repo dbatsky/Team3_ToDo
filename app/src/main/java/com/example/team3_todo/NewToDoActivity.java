@@ -77,6 +77,7 @@ public class NewToDoActivity extends AppCompatActivity {
 
                         Intent a = new Intent(NewToDoActivity.this, MainActivity.class);
                         startActivity(a);
+                        finish();
                     }
 
                     @Override

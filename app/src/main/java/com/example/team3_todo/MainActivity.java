@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent a = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(a);
+                finish();
             }
         });
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent a = new Intent(MainActivity.this, NewToDoActivity.class);
                 startActivity(a);
+                finish();
             }
         });
 
