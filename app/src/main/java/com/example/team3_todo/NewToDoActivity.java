@@ -62,7 +62,7 @@ public class NewToDoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Insert data to database
-                reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo").
+                reference = FirebaseDatabase.getInstance().getReference().child(SharedPref.UNIQUE_ID).
                         child("ToDo" + todoID);
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

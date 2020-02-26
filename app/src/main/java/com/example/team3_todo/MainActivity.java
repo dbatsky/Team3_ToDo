@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,9 +80,12 @@ public class MainActivity extends AppCompatActivity {
         todos.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
 
+        // unique id (generate first run only)
+        if(SharedPref.UNIQUE_ID == null)
+            SharedPref.UNIQUE_ID = UUID.randomUUID().toString();
 
         // Retrieve data from Firebase
-        reference = FirebaseDatabase.getInstance().getReference().child("Team3ToDo");
+        reference = FirebaseDatabase.getInstance().getReference().child(SharedPref.UNIQUE_ID);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

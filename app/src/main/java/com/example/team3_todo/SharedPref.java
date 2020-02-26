@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 public class SharedPref {
 
+    static String UNIQUE_ID = null;
+
     private SharedPreferences sharedPreferences;
 
     public SharedPref(Context context) {
